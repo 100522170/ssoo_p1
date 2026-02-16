@@ -1,0 +1,19 @@
+# Compilación
+build/
+out/
+*.o
+*.d
+*.a
+*.so
+
+# Ejecutables
+test_exec
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
