@@ -1,9 +1,29 @@
-Contributors: 
-	- José Daniel García
-	- Alberto Cascajo
 
 
-# SSOO docker container
+# Explicacion y precauciones
+Debajo esta los pasos para meter el docker y tal
+
+Vale de primeras no se puede usar lo tipico de c de #include <stdio.h>
+
+Esto significa:
+
+🚫 No puedes usar printf (para imprimir en pantalla).
+
+🚫 No puedes usar scanf (para leer).
+
+🚫 No puedes usar fopen / fprintf (para ficheros).
+
+Tienes que hacerlo todo "a mano" hablando directamente con el Kernel de Linux usando
+
+
+
+
+
+
+
+
+
+# DOCKER AQUI !! SSOO docker container
 
 Docker container for the Operating Systems course.
 
@@ -29,27 +49,8 @@ Now you can start working.
 
 Note: Once the image and container has been generated, you can open the folder directly in the container. 
 
-### Using Docker from the command line
 
-To build the image you can just do:
-
-```bash
-docker build -f .devcontainer/Dockerfile -t ssoo_docker_env .
-```
-
-If you want run an interactive comand line interpreter inside the container you can do:
-
-```bash
-docker run --rm -v $(pwd):/workspace -w /workspace -it ssoo_docker_env
-```
-
-You will be able to run commands inside the container. Try the following commands:
-
-```bash
-gcc --version
-cmake --version
-echo "Everything is ready to start working"
-```
+v
 
 
 
