@@ -1,29 +1,8 @@
+# IMPOORTANTE
+los archivos que hay que entregar/probar son solo los que estan en p1_calls
+exceptuando CMakeLists que para que os hagais una idea es solo lo que hace que en vuestra interfaz abajo os aparezca el boton de play, y asi no tener que estar poniendo make todo el rato(es una tonteria que puse porque estaba en el repositorio inicial y no sabia para que servia)
 
-
-# Explicacion y precauciones
-Debajo esta los pasos para meter el docker y tal
-
-Vale de primeras no se puede usar lo tipico de c de #include <stdio.h>
-
-Esto significa:
-
-🚫 No puedes usar printf (para imprimir en pantalla).
-
-🚫 No puedes usar scanf (para leer).
-
-🚫 No puedes usar fopen / fprintf (para ficheros).
-
-Tienes que hacerlo todo "a mano" hablando directamente con el Kernel de Linux usando
-
-
-
-
-
-
-
-
-
-# DOCKER AQUI !! SSOO docker container
+# SSOO docker container
 
 Docker container for the Operating Systems course.
 
@@ -48,9 +27,3 @@ We will be able to use the image from the command line or from the VSCode develo
 Now you can start working. 
 
 Note: Once the image and container has been generated, you can open the folder directly in the container. 
-
-
-v
-
-
-

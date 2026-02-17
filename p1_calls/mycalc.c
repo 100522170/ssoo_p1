@@ -2,7 +2,6 @@
 
 const char *log_file = "mycalc.log";
 
-
 int main(int argc, char *argv[]) {
 
   /* Complete */
