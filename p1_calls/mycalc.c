@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[1], "-b") == 0) {
 
       if (write(1, history_mode, strlen(history_mode)) < 0) {
-        return 1;
+        return -1;
       }
     }
   }
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   if (argc == 4) {
 
     if (write(1, calc_mode, strlen(calc_mode)) < 0) {
-      return 0;
+      return -1;
     }
   }
   /* Complete */
