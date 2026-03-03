@@ -4,8 +4,7 @@
 #include <unistd.h> /*To use write*/
 
 #define LOG_FILE "mycalc.log"
-#define BUF_SIZE 256
-const char *log_file = "mycalc.log";
+#define array_SIZE 256
 
 int write_str(int fd, char *s) { // write str and check if error
   if (write(fd, s, strlen(s)) < 0) {
@@ -23,7 +22,7 @@ int print_usage_error(void) { // print the usage str in case of error
   }
   return 0;
 }
-static int long_to_str(long val, char *buf) {
+void long_to_str(long val, char *array) {
   int i = 0;
   int start = 0;
   int neg = 0;
@@ -35,35 +34,33 @@ static int long_to_str(long val, char *buf) {
 
   /* Generate digits in reverse order */
   do {
-    buf[i++] = '0' + (char)(val % 10);
+    array[i++] = '0' + (char)(val % 10);
     val /= 10;
   } while (val > 0);
 
   if (neg) {
-    buf[i++] = '-';
+    array[i++] = '-';
   }
 
-  buf[i] = '\0';
+  array[i] = '\0';
 
   /* Reverse the string */
   start = 0;
   i--;
   while (start < i) {
-    char tmp = buf[start];
-    buf[start] = buf[i];
-    buf[i] = tmp;
+    char tmp = array[start];
+    array[start] = array[i];
+    array[i] = tmp;
     start++;
     i--;
   }
-
-  return (int)strlen(buf);
 }
 int calc_mode(const char *num_1, char *operand,
               char *num_2) { // proces of the calculator mode
 
   long num1, num2;
   long result;
-  char line[BUF_SIZE];
+  char line[array_SIZE];
   char tmp[64];
   int fd;
   int len;
@@ -197,7 +194,7 @@ int history_mode(char *line) {
   int current_line;
   char ch;
   ssize_t bytes_read;
-  char line_buf[BUF_SIZE];
+  char line_array[array_SIZE];
   int line_len;
   char tmp[64];
 
@@ -228,11 +225,11 @@ int history_mode(char *line) {
     if (current_line == line_num) {
       if (ch == '\n') {
         /* Reached end of the desired line */
-        line_buf[line_len] = '\0';
+        line_array[line_len] = '\0';
         break;
       }
-      if (line_len < BUF_SIZE - 1) {
-        line_buf[line_len++] = ch;
+      if (line_len < array_SIZE - 1) {
+        line_array[line_len++] = ch;
       }
     } else {
       if (ch == '\n') {
@@ -259,7 +256,7 @@ int history_mode(char *line) {
     return -1;
   if (write_str(1, ": ") < 0)
     return -1;
-  if (write(1, line_buf, (size_t)line_len) < 0)
+  if (write(1, line_array, (size_t)line_len) < 0)
     return -1;
   if (write_str(1, "\n") < 0)
     return -1;
