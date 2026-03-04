@@ -16,7 +16,7 @@ int write_str(int fd, char *s) { // write str and check if error
 int print_usage_error(void) { // print the usage str in case of error
   if (write_str(2, "Error: \n Usage (1): ./mycalc <num1> <operation (+|-|x|/)> "
                    "<num2> \n "
-                   "Usage (2): ./mycalc -b <num operation>") <
+                   "Usage (2): ./mycalc -b <num operation>\n") <
       0) { // write error msg and return-1 if write fails
     return -1;
   }

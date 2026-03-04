@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y gcc-12 g++-12 && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Valgrind 3.19.0 from source
-RUN wget https://sourceware.org/pub/valgrind/valgrind-3.19.0.tar.bz2 && \
+RUN wget https://sourceware.org/pub/valgrind/valgrind-3.19.0.tar.bz2 && \º  
     tar -xjf valgrind-3.19.0.tar.bz2 && cd valgrind-3.19.0 && \
     ./configure --prefix=/usr/local && make -j$(nproc) && make install && \
     cd .. && rm -rf valgrind-3.19.0 valgrind-3.19.0.tar.bz2
